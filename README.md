@@ -1,2 +1,4 @@
 # Conditional-Generation-for-ARMA-process
-Diffusion models are state of the art method to generate from probabilities distribution. This repository shows how to apply Denoising Probabilistic Models to ARMA models. 
+Diffusion models are state of the art method to generate from probabilities distribution. This repository shows how to apply Denoising Probabilistic Models to ARMA models. DDPM uses a noising process to map the probability density $p(x^0)$ to $p(x^K) = \mathcal{N}(0,I)$. This is done by a discrete process that add gaussian noise and remove the signal from the initial sample. This process is fixed to a markov chain and creates $K$ latent random variables $\{x^k\}_{k=1}^K$. The reverse process is approximately normal and assumes that the variance of the transition kernel is known (but can be also learned). Here I show a case of conditional generation. We want to learn the following object:
+
+$$p(y_t|y_{t-1}) \text{ where } y_t = \phi y_{t-1} + \epsilon_t$$
